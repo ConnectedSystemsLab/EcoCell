@@ -13,11 +13,9 @@ EcoCell published at NINeS'2026
 > *NINeS'2026, 2023* 
 
 ---
-## Dataset
+## Dataset ([link](https://uillinoisedu-my.sharepoint.com/:f:/g/personal/zikunliu_illinois_edu/IgDye_Bjwsw_Q7yIrd0eXIkvAYuFAk2wt2XvdGAfo080A1o?e=BMNbSy))
 
-EcoCell Dataset (reproduce figures in the paper): [link](https://uillinoisedu-my.sharepoint.com/:f:/g/personal/zikunliu_illinois_edu/IgDye_Bjwsw_Q7yIrd0eXIkvAYuFAk2wt2XvdGAfo080A1o?e=BMNbSy)
-We release all the dataset to reproduce figures in the paper.
-We release all the dataset to reproduce figures in the paper, [EcoCell Dataset](https://uillinoisedu-my.sharepoint.com/:f:/g/personal/zikunliu_illinois_edu/IgDye_Bjwsw_Q7yIrd0eXIkvAYuFAk2wt2XvdGAfo080A1o?e=BMNbSy)
+We release all the dataset to advocate more findings based on our studies and for reproducing results and figures in the paper.
 
 Main Datasets Info:
 
