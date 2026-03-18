@@ -1,7 +1,22 @@
-**EcoCell: Energy-aware Traffic Shaping for Cellular Radio Access Networks**
+EcoCell: Energy-aware Traffic Shaping for Cellular Radio Access Networks
+---
+---
+## EcoCell Highlight
+- The rapid growth of cellular networks drives global energy demand: millions of base stations contribute large carbon emissions.
+- Traditional approaches for BS energy optimization lack practical, real-world power-saving mechanisms.
+- EcoCell introduces a software-only middlebox that reduces energy consumption by shaping traffic patterns in real time.
+
+EcoCell published at NINeS'2026
+
+> **[EcoCell: Energy-aware Traffic Shaping for Cellular Radio Access Networks](https://nines-conference.org/papers/p006-Liu.pdf)**  
+> Zikun Liu, Seoyul Oh, Bill Tao, Yaxiong Xie, Anuj Kalia, Deepak Vasisht    
+> *NINeS'2026, 2023* 
 
 ---
-**EcoCell Dataset ([link](https://uillinoisedu-my.sharepoint.com/:f:/g/personal/zikunliu_illinois_edu/IgDye_Bjwsw_Q7yIrd0eXIkvAYuFAk2wt2XvdGAfo080A1o?e=BMNbSy))**
+## Dataset
+
+EcoCell Dataset (reproduce figures in the paper): [link](https://uillinoisedu-my.sharepoint.com/:f:/g/personal/zikunliu_illinois_edu/IgDye_Bjwsw_Q7yIrd0eXIkvAYuFAk2wt2XvdGAfo080A1o?e=BMNbSy)
+We release all the dataset to reproduce figures in the paper.
 We release all the dataset to reproduce figures in the paper, [EcoCell Dataset](https://uillinoisedu-my.sharepoint.com/:f:/g/personal/zikunliu_illinois_edu/IgDye_Bjwsw_Q7yIrd0eXIkvAYuFAk2wt2XvdGAfo080A1o?e=BMNbSy)
 
 Main Datasets Info:
@@ -26,13 +41,14 @@ Usage:
    2. src code to analyze and plot the power/DCI information
 
 ---
-**EcoCell Traffic Shaping Tool**
 
-Our tool reads packets from a TUN device, queues them (fifo or per-UE), optionally timestamps packets for bursty transmission, rate-limits egress, and sends packets via a raw socket.
+## Traffic Shaping Tool
 
-- Pipeline: receiver -> optional burst_timestamper -> scheduler (fifo | per_ue) -> rate_limiter -> sender.
-- Bursty mode: groups sends by setting `earliest_send_time` on packets.
-- Rate limiting: `rate_limiter` enforces bytes/sec using sleeps and respects packet timestamps.
+Short: reads packets from a TUN device, queues them (fifo or per-UE), optionally timestamps for bursty transmission, rate-limits egress, and sends packets via a raw socket.
+
+- Pipeline: `receiver` -> optional `burst_timestamper` -> `scheduler` (`fifo` | `per_ue`) -> `rate_limiter` -> `sender`.
+- Bursty mode: sets `earliest_send_time` to group sends into cycles.
+- Rate limiting: `rate_limiter` enforces bytes/sec via sleeps and respects timestamps.
 
 Build (Linux, needs root or CAP_NET_RAW/TUN):
 ```sh
@@ -53,5 +69,17 @@ sudo ./main tun0 eth0 false 0 fifo
 ```
 
 Note: `main.cc` currently uses fixed values for queue size, quantum and max bytes/sec — edit code or add CLI flags to change them. See `lib/include/scheduler.h`, `lib/include/rate_limiter.h`, `lib/include/sender.h`, and `src/main.cc` for details.
+
+## Citation
+
+If you find this repo and our paper useful, please consider citing our paper:
+
+```bibtex
+@inproceedings{LiuEcoCellEC,
+   title={EcoCell: Energy Conservation through Traffic Shaping in Cellular Radio Access Networks},
+   author={Zikun Liu and Seoyul Oh and Bill Tao and Yaxiong Xie and Anuj Kalia and Usa Deepak OpenAI and Vasisht},
+   url={https://api.semanticscholar.org/CorpusID:286090873}
+}
+```
 
 
